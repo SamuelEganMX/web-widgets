@@ -36,7 +36,7 @@ const dummyColumns: ColumnsPreviewType[] = [
 ];
 
 export function preview(props: DatagridPreviewProps): ReactElement {
-    const data: ObjectItem[] = Array.from({ length: props.pageSize ?? 5 }).map((_, index) => ({
+    const data: ObjectItem[] = Array.from({ length: 5 }).map((_, index) => ({
         id: String(index) as GUID
     }));
     const columns: ColumnsPreviewType[] = props.columns.length > 0 ? props.columns : dummyColumns;
@@ -129,7 +129,7 @@ export function preview(props: DatagridPreviewProps): ReactElement {
             headerWrapperRenderer={selectableWrapperRenderer}
             numberOfItems={5}
             page={0}
-            pageSize={props.pageSize ?? 5}
+            pageSize={5}
             paging={props.pagination === "buttons"}
             pagingPosition={props.pagingPosition}
             preview

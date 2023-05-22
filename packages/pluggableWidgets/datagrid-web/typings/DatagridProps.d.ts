@@ -88,7 +88,7 @@ export interface DatagridContainerProps {
     showSelectAllToggle: boolean;
     columns: ColumnsType[];
     columnsFilterable: boolean;
-    pageSize: number;
+    pageSize?: DynamicValue<Big>;
     pagination: PaginationEnum;
     pagingPosition: PagingPositionEnum;
     showEmptyPlaceholder: ShowEmptyPlaceholderEnum;
@@ -123,7 +123,7 @@ export interface DatagridPreviewProps {
     showSelectAllToggle: boolean;
     columns: ColumnsPreviewType[];
     columnsFilterable: boolean;
-    pageSize: number | null;
+    pageSize: string;
     pagination: PaginationEnum;
     pagingPosition: PagingPositionEnum;
     showEmptyPlaceholder: ShowEmptyPlaceholderEnum;

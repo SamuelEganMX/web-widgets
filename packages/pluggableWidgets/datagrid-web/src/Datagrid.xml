@@ -173,9 +173,10 @@
                 </property>
             </propertyGroup>
             <propertyGroup caption="Rows">
-                <property key="pageSize" type="integer" defaultValue="20">
-                    <caption>Page size</caption>
+                <property key="pageSize" type="expression" required="false">
+                    <caption>Page Size</caption>
                     <description />
+                    <returnType type="Integer" />
                 </property>
                 <property key="pagination" type="enumeration" defaultValue="buttons">
                     <caption>Pagination</caption>
