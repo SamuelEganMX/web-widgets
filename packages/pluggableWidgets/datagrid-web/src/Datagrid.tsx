@@ -37,13 +37,16 @@ export default function Datagrid(props: DatagridContainerProps): ReactElement {
     const cellRenderer = useCellRenderer({ columns: props.columns, onClick: props.onClick });
 
     useEffect(() => {
+        setCurrentPage(isInfiniteLoad ? props.datasource.limit / pageSize : props.datasource.offset / pageSize);
+    }, [pageSize, props.datasource.limit, props.datasource.offset]);
+
+    useEffect(() => {
         props.datasource.setOffset(0);
         props.datasource.setLimit(pageSize);
-        setCurrentPage(0);
     }, [pageSize]);
 
     useEffect(() => {
-        if(props.pageSize && isAvailable(props.pageSize) && props.pageSize.value){
+        if (props.pageSize && isAvailable(props.pageSize) && props.pageSize.value) {
             setPageSize(props.pageSize.value.toNumber());
         }
     }, [props.pageSize]);
@@ -73,7 +76,6 @@ export default function Datagrid(props: DatagridContainerProps): ReactElement {
     const setPage = useCallback(
         computePage => {
             const newPage = computePage(currentPage);
-            setCurrentPage(newPage);
             if (isInfiniteLoad) {
                 props.datasource.setLimit(newPage * pageSize);
             } else {
